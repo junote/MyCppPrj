@@ -7,6 +7,6 @@ find_package(Threads REQUIRED)
 add_subdirectory(3rdparty)
 add_subdirectory(cpp)
 add_subdirectory(cli)
-add_subdirectory(pybind)
+# add_subdirectory(pybind)
 add_subdirectory(tests)
 

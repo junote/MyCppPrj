@@ -17,7 +17,7 @@ using namespace std;
 class Base8DevCli
 {
     public:
-        Base8DevCli(BaseDev* dev, std::string devName):dev(dev),devName(devName){
+        Base8DevCli(shared_basedev_ptr dev, std::string devName):dev(dev),devName(devName){
             rootMenu->Insert(
                 devName + ".read", {"regAddr", "len"},
                 [&](std::ostream& out, uint8 regAddr, int len)
@@ -45,7 +45,7 @@ class Base8DevCli
                 << (unsigned)(dev->read((uint8)(regAddr))) << "\n";
         }       
     private:
-        BaseDev* dev;
+        shared_basedev_ptr dev;
         std::string devName;
 
 };
@@ -53,7 +53,7 @@ class Base8DevCli
 class Base16DevCli
 {
     public:
-        Base16DevCli(BaseDev* dev, std::string devName):dev(dev),devName(devName){
+        Base16DevCli(shared_basedev_ptr dev, std::string devName):dev(dev),devName(devName){
             rootMenu->Insert(
                 devName + ".read", {"regAddr", "len"},
                 [&](std::ostream& out, uint16 regAddr, int len)
@@ -81,7 +81,7 @@ class Base16DevCli
                 << (unsigned)(dev->read((uint16)(regAddr))) << "\n";
         }       
     private:
-        BaseDev* dev;
+        shared_basedev_ptr dev;
         std::string devName;
 
 };
@@ -90,7 +90,7 @@ class Base16DevCli
 class Base32DevCli
 {
     public:
-        Base32DevCli(BaseDev* dev, std::string devName):dev(dev),devName(devName){
+        Base32DevCli(shared_basedev_ptr dev, std::string devName):dev(dev),devName(devName){
             rootMenu->Insert(
                 devName + ".read", {"regAddr", "len"},
                 [&](std::ostream& out, uint32 regAddr, int len)
@@ -118,7 +118,7 @@ class Base32DevCli
                 << (unsigned)(dev->read((uint32)(regAddr))) << "\n";
         }       
     private:
-        BaseDev* dev;
+        shared_basedev_ptr dev;
         std::string devName;
 
 };

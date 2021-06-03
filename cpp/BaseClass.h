@@ -1,12 +1,7 @@
 #pragma once
+#include <memory>
 #include "gtypes.h"
-#include "spdlog/spdlog.h"
-#include "spdlog/sinks/stdout_color_sinks.h"
 
-// const std::string logName = "devLog";
-// static std::shared_ptr<spdlog::logger> shareLogger = spdlog::stdout_color_mt(logName);
-
-#define devInfo(...) spdlog::info(__VA_ARGS__)
 
 class BaseBus
 {
@@ -23,10 +18,12 @@ class BaseBus
     private:
 };
 
+using shared_basebus_ptr = std::shared_ptr<BaseBus>;
+
 class BaseDev
 {
     public:
-        BaseDev(BaseBus* devBus):devBus(devBus){}
+        BaseDev(shared_basebus_ptr devBus):devBus(devBus){}
         ~BaseDev(){}
 
         virtual uint8 read(uint8 addr){return 0xde;}
@@ -37,5 +34,7 @@ class BaseDev
         //  void write(uint16 addr, uint16 value){devBus->write16(addr,value);}
         //  void write(uint32 addr, uint32 value){devBus->write32(addr,value);}
     private:
-        BaseBus* devBus;
+        shared_basebus_ptr devBus;
 };
+
+using shared_basedev_ptr = std::shared_ptr<BaseDev>;

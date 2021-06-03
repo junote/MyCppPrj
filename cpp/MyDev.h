@@ -15,12 +15,12 @@ class MyBus:public BaseBus
 class MyDev8:public BaseDev
 {
 public:
-    MyDev8(BaseBus* myBus):myBus(myBus),BaseDev(myBus){}
+    MyDev8(shared_basebus_ptr myBus):myBus(myBus),BaseDev(myBus){}
     ~MyDev8(){}
     uint8 read(uint8 addr){return myBus->read8(addr);}
 
 private:
-    BaseBus* myBus;
+    shared_basebus_ptr myBus;
 
 };
 
@@ -28,22 +28,22 @@ private:
 class MyDev32:public BaseDev
 {
 public:
-    MyDev32(BaseBus* myBus):myBus(myBus),BaseDev(myBus){}
+    MyDev32(shared_basebus_ptr myBus):myBus(myBus),BaseDev(myBus){}
     ~MyDev32(){}
     uint32 read(uint32 addr);
 
 private:
-    BaseBus* myBus;
+    shared_basebus_ptr myBus;
 
 };
 
 class MyDev16:public BaseDev
 {
 public:
-    MyDev16(BaseBus* myBus):myBus(myBus),BaseDev(myBus){}
+    MyDev16(shared_basebus_ptr myBus):myBus(myBus),BaseDev(myBus){}
     ~MyDev16(){}
     uint16 read(uint16 addr);
 private:
-    BaseBus* myBus;
+    shared_basebus_ptr myBus;
 
 };

@@ -23,14 +23,21 @@ int main(int argc, char const *argv[])
         // setup cli                                                                       
     
 
-         BaseBus* myBus = new MyBus();
-         BaseDev* myDev8 = new MyDev8(myBus);
-         BaseDev* myDev16 = new MyDev16(myBus);
-         BaseDev* myDev32 = new MyDev32(myBus);
-         MyDev8Cli myDev8Cli(myDev8, "dev8");
-         MyDev16Cli myDev16Cli(myDev16, "dev16");
-         MyDev32Cli myDev32Cli(myDev32, "dev32");
+        //  BaseBus* myBus = new MyBus();
+        //  BaseDev* myDev8 = new MyDev8(myBus);
+        //  BaseDev* myDev16 = new MyDev16(myBus);
+        //  BaseDev* myDev32 = new MyDev32(myBus);
+        //  MyDev8Cli myDev8Cli(myDev8, "dev8");
+        //  MyDev16Cli myDev16Cli(myDev16, "dev16");
+        //  MyDev32Cli myDev32Cli(myDev32, "dev32");
 
+        shared_basebus_ptr myBus = std::make_shared<MyBus>();
+        shared_basedev_ptr myDev8 = std::make_shared<MyDev8>(myBus);       
+        shared_basedev_ptr myDev16 = std::make_shared<MyDev16>(myBus);       
+        shared_basedev_ptr myDev32 = std::make_shared<MyDev32>(myBus);       
+        MyDev8Cli myDev8Cli(myDev8, "dev8");
+        MyDev16Cli myDev16Cli(myDev16, "dev16");
+        MyDev32Cli myDev32Cli(myDev32, "dev32");
 
 
         // create a cli with the given root menu and a persistent storage
