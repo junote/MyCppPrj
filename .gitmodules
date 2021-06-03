@@ -1,0 +1,12 @@
+[submodule "3rdparty/spdlog"]
+	path = 3rdparty/spdlog
+	url = https://github.com/gabime/spdlog.git
+[submodule "3rdparty/cli"]
+	path = 3rdparty/cli
+	url = https://github.com/daniele77/cli.git
+[submodule "3rdparty/pybind11"]
+	path = 3rdparty/pybind11
+	url = https://github.com/pybind/pybind11.git
+[submodule "3rdparty/gtest"]
+	path = 3rdparty/gtest
+	url = https://github.com/google/googletest.git
